@@ -177,6 +177,7 @@ while loop:
                 print("Data tidak ditemukan!!!") 
 
     elif menu == "K" or menu == "k":
+        print("Selesai")
         loop = False 
 
     else:
