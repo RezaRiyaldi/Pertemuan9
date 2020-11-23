@@ -16,49 +16,12 @@
  
         
 ### Labspy 04
-Konsep Program:
+Konsep Program :
 - Progam meminta memasukkan data sebanyak-banyaknya (gunakan perulangan)
 - Tampilkan pertanyaan untuk menambah data (y/t?), apabila jawaban t (Tidak), maka program akan menampilkan daftar datanya.
 - Nilai Akhir diambil dari perhitungan 3 komponen nilai (tugas: 30%, uts: 35%, uas: 35%)
 
-Berikut [Source Code](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy04/labs04.py)-nya
-```python
-# LIST
-namaMahasiswa = []
-nimMahasiswa = []
-nilaiTugasMahasiswa = []
-nilaiUTSMahasiswa = []
-nilaiUASMahasiswa = []
-
-# Input
-while True:
-    namaMahasiswa.append(input("Masukan nama : "))
-    nimMahasiswa.append(int(input("Masukan NIM  : ")))
-    _nilaiTugas = int(input("Nilai tugas  : ")); nilaiTugasMahasiswa.append(_nilaiTugas)
-    _nilaiUTS = int(input("Nilai UTS    : ")); nilaiUTSMahasiswa.append(_nilaiUTS)
-    _nilaiUAS = int(input("Nilai UAS    : ")); nilaiUASMahasiswa.append(_nilaiUAS)
-    print()
-    _tanya = input("Tambah data lagi? [y/t]: ")
-    print()
-    if(_tanya == "t" or _tanya =="T"):
-        break
-
-# Output
-print(71*"=")
-print("| {0:^2} | {1:^18} | {2:^7} | {3:^5} | {4:^5} | {5:^5} | {6:^7} |".format("No", "Nama", "NIM", "Tugas", "UTS", "UAS", "Akhir"))
-print(71*"=")
-
-no = 0
-for nama, nim, nilaiTugas, nilaiUTS, nilaiUAS in zip(namaMahasiswa, nimMahasiswa, nilaiTugasMahasiswa, nilaiUTSMahasiswa, nilaiUASMahasiswa):
-    no += 1    
-    tugas = _nilaiTugas * 30/100
-    UTS = _nilaiUTS * 35/100
-    UAS = _nilaiUAS * 35/100
-    nilaiAkhir = tugas + UTS + UAS
-    print("| {0:>2} | {1:<18} | {2:>7} | {3:>5} | {4:>5} | {5:>5} | {6:>7.2f} |".format(no, nama, nim, nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir))
-print(71*"=")
-
-```
+Pada Labspy04 ini saya akan menjelaskan program yang saya buat. Berikut [Source Code](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy04/labs04.py)-nya
 
 Penjelasan
 1. Deklarasi list, ketika menginput data maka akan dimasukan ke dalam list ini
@@ -127,7 +90,32 @@ print("| {0:>2} | {1:<18} | {2:>7} | {3:>5} | {4:>5} | {5:>5} | {6:>7.2f} |".for
 print(71*"=")
 ```
 
-Maka Program Seperti berikut.
+Maka program seperti berikut.
+
 ![Output Labspy04](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy04/gambar/labspy04-output.PNG)
 
 ### Labspy 05
+Konsep Program :
+- Program dibuat dengan menggunakan Dictionary
+- Tampilkan menu pilihan: (Tambah Data, Tampilkan Data, Ubah Data, Hapus Data, Cari Data)
+- Nilai Akhir diambil dari perhitungan 3 komponen nilai (tugas: 30%, uts: 35%, uas: 35%)
+
+Pada Labspy05 ini saya akan menjelaskan program yang saya buat. Berikut [Source Code](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/labs05.py)-nya
+
+Penjelasan
+1. 
+```python
+class Mahasiswa:
+```
+
+2. 
+```python
+# Inisialisasi
+ def __init__(self, _nama, _nim, _nilaiTugas, _nilaiUTS, _nilaiUAS, _nilaiAkhir):
+     self.nama       = str(_nama) 
+     self.nim        = str(_nim) 
+     self.nilaiTugas = int(_nilaiTugas)
+     self.nilaiUTS   = int(_nilaiUTS)
+     self.nilaiUAS   = int(_nilaiUAS)
+     self.nilaiAkhir = float(_nilaiAkhir)
+```
