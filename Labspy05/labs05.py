@@ -1,5 +1,5 @@
 class Mahasiswa:
-    # Inisialisasi
+    # Inisialisasi/Memasukan data inputan ke Dictionary
     def __init__(self, _nama, _nim, _nilaiTugas, _nilaiUTS, _nilaiUAS, _nilaiAkhir):
         self.nama       = str(_nama) 
         self.nim        = str(_nim) 
@@ -8,7 +8,7 @@ class Mahasiswa:
         self.nilaiUAS   = int(_nilaiUAS)
         self.nilaiAkhir = float(_nilaiAkhir)
 
-    # Memasukan data kekamus
+    # Untuk merubah data dari Dictionary Data_Mahasiswa
     def setNama(self, _nama):
         self.nama = _nama
 
@@ -27,7 +27,7 @@ class Mahasiswa:
     def setNilaiAkhir(self, _nilaiAkhir):
         self.nilaiAkhir = _nilaiAkhir
 
-    # Menampilkan data
+    # Menampilkan/mengambil data dari dictionary
     def getNama(self):
         return self.nama 
 
@@ -46,14 +46,19 @@ class Mahasiswa:
     def getNilaiAkhir(self):
         return self.nilaiAkhir 
 
+# Function biasa
+def garis():
+    print(71*"=")
+
 def header():
-    print(71*"=")
+    garis()
     print("| {0:^2} | {1:^7} | {2:^18} | {3:^5} | {4:^5} | {5:^5} | {6:^7} |".format("No", "NIM", "Nama", "Tugas", "UTS", "UAS", "Akhir"))
-    print(71*"=")
+    garis()
 
 # Deklarasi Variable
 Data_Mahasiswa = {} 
 loop = True
+
 # Program
 print(23*"=")
 print("= Program Input Nilai =")
@@ -65,6 +70,7 @@ while loop:
     print(71*"-")
     print()
     
+    # Tambah Data {
     if menu == 'T' or menu == 't':
         print("Tambah data")
         nim        = input("NIM         : ")
@@ -75,14 +81,15 @@ while loop:
         nilaiAkhir = (nilaiTugas * 30/100) + (nilaiUTS * 35/100) + (nilaiUAS * 35/100)
         mhs = Mahasiswa(nama, nim, nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir) 
         Data_Mahasiswa[nim] = mhs 
-        # print(Data_Mahasiswa.items())
+    # }
 
+    # Lihat Data {
     elif menu == 'L' or menu == 'l':
         print("Daftar Mahasiswa")
         if len(Data_Mahasiswa) <= 0:  
             header()          
             print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-            print(71*"=")
+            garis()
         else:
             no = 0
             header()
@@ -90,14 +97,16 @@ while loop:
                 no += 1 
                 L_Data = Data_Mahasiswa[i]
                 print(f"| {no:>2} | {L_Data.getNim():>7} | {L_Data.getNama():<18} | {L_Data.getNilaiTugas():>5} | {L_Data.getNilaiUTS():>5} | {L_Data.getNilaiUAS():>5} | {L_Data.getNilaiAkhir():>7.2f} |")                
-            print(71*"=")        
+            garis()        
+    # }
 
+    # Ubah Data {
     elif menu == "U" or menu == "u":
         print("Ubah Data Mahasiswa berdasarkan NIM")
         if len(Data_Mahasiswa) <= 0:  
             header()          
             print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-            print(71*"=")
+            garis()
 
         else:
             nim = str(input("Masukan nim : ")) 
@@ -137,13 +146,15 @@ while loop:
 
             else:
                 print("Data tidak ditemukan!!!") 
+    # }
 
+    # Hapus Data {
     elif menu == "H" or menu == "h":
         print("Hapus Data Mahasiswa berdasarkan NIM")
         if len(Data_Mahasiswa) <= 0:  
             header()          
             print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-            print(71*"=")
+            garis()
 
         else:
             nim = str(input("Masukan NIM : "))
@@ -151,13 +162,15 @@ while loop:
                 del Data_Mahasiswa[nim] 
             else:
                 print("Data tidak ditemukan!!!") 
+    # }
 
+    # Cari Data {
     elif menu == "C" or menu == "c":
         print("Cari Data Mahasiswa berdasarkan NIM")
         if len(Data_Mahasiswa) <= 0:  
             header()          
             print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-            print(71*"=")
+            garis()
         else:
             nim = str(input("Masukan NIM : ")) 
             if(nim in Data_Mahasiswa):
@@ -166,13 +179,16 @@ while loop:
                 no += 1 
                 C_Data = Data_Mahasiswa[nim]
                 print(f"| {no:>2} | {C_Data.getNim():>7} | {C_Data.getNama():<18} | {C_Data.getNilaiTugas():>5} | {C_Data.getNilaiUTS():>5} | {C_Data.getNilaiUAS():>5} | {C_Data.getNilaiAkhir():>7.2f} |")                  
-                print(71*"=")        
+                garis()        
             else:
                 print("Data tidak ditemukan!!!") 
+    # }
 
+    # Keluar {
     elif menu == "K" or menu == "k":
         print("Selesai")
         loop = False 
+    # }
 
     else:
         print("Menu tidak ada atau anda salah memasukan nilai!") 
