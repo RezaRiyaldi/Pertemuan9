@@ -46,13 +46,18 @@ class Mahasiswa:
     def getNilaiAkhir(self):
         return self.nilaiAkhir 
 
-# Function biasa
+# Function2an
 def garis():
     print(71*"=")
 
 def header():
     garis()
     print("| {0:^2} | {1:^7} | {2:^18} | {3:^5} | {4:^5} | {5:^5} | {6:^7} |".format("No", "NIM", "Nama", "Tugas", "UTS", "UAS", "Akhir"))
+    garis()
+
+def tidakAdaData(): 
+    header()          
+    print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
     garis()
 
 # Deklarasi Variable
@@ -87,9 +92,7 @@ while loop:
     elif menu == 'L' or menu == 'l':
         print("Daftar Mahasiswa")
         if len(Data_Mahasiswa) <= 0:  
-            header()          
-            print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-            garis()
+            tidakAdaData()
         else:
             no = 0
             header()
@@ -104,9 +107,7 @@ while loop:
     elif menu == "U" or menu == "u":
         print("Ubah Data Mahasiswa berdasarkan NIM")
         if len(Data_Mahasiswa) <= 0:  
-            header()          
-            print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-            garis()
+            tidakAdaData()
 
         else:
             nim = str(input("Masukan nim : ")) 
@@ -127,8 +128,7 @@ while loop:
                 elif tanya == 2:
                     nimBaru = str(input("Masukan Nim Baru : ")) 
                     Data_Mahasiswa[nim].setNim(nimBaru) 
-                    mhs = Data_Mahasiswa[nim] 
-                    Data_Mahasiswa[nimBaru] = mhs 
+                    Data_Mahasiswa[nimBaru] = Data_Mahasiswa[nim]  
                     del Data_Mahasiswa[nim] 
 
                 elif tanya == 3:
@@ -152,9 +152,7 @@ while loop:
     elif menu == "H" or menu == "h":
         print("Hapus Data Mahasiswa berdasarkan NIM")
         if len(Data_Mahasiswa) <= 0:  
-            header()          
-            print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-            garis()
+            tidakAdaData()
 
         else:
             nim = str(input("Masukan NIM : "))
@@ -168,9 +166,8 @@ while loop:
     elif menu == "C" or menu == "c":
         print("Cari Data Mahasiswa berdasarkan NIM")
         if len(Data_Mahasiswa) <= 0:  
-            header()          
-            print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-            garis()
+            tidakAdaData()
+            
         else:
             nim = str(input("Masukan NIM : ")) 
             if(nim in Data_Mahasiswa):
