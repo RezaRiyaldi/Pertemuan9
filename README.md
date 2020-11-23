@@ -13,6 +13,10 @@
 * [Pertemuan 9](https://github.com/RezaRiyaldi/Pertemuan9#pertemuan-9)
     * [Labspy04](https://github.com/RezaRiyaldi/Pertemuan9#Labspy-04) | [direktori](https://github.com/RezaRiyaldi/Pertemuan9/tree/main/Labspy04) | [Source Code](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy04/labs04.py)
     * [Labspy05](https://github.com/RezaRiyaldi/Pertemuan9#Labspy-05) | [direktori](https://github.com/RezaRiyaldi/Pertemuan9/tree/main/Labspy05) | [Source Code](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/labs05.py)
+         * [Membuat Kerangka](https://github.com/RezaRiyaldi/Pertemuan9#membuat-kerangka)
+         * [Program](https://github.com/RezaRiyaldi/Pertemuan9#program)
+         * [Tambah Data](https://github.com/RezaRiyaldi/Pertemuan9#tambah-data-t)
+         * [Lihat Data](https://github.com/RezaRiyaldi/Pertemuan9#lihat-data-l)
  
         
 ### Labspy 04
@@ -167,13 +171,18 @@ def getNilaiAkhir(self):
 
 6. Membuat function dan deklarasi variable
 ```python
-# Function biasa
+# Function2an
 def garis():
     print(71*"=")
 
 def header():
     garis()
     print("| {0:^2} | {1:^7} | {2:^18} | {3:^5} | {4:^5} | {5:^5} | {6:^7} |".format("No", "NIM", "Nama", "Tugas", "UTS", "UAS", "Akhir"))
+    garis()
+  
+def tidakAdaData(): 
+    header()          
+    print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
     garis()
 
 # Deklarasi Variable
@@ -242,13 +251,11 @@ Maka program Tambah akan seperti berikut.
 elif menu == 'L' or menu == 'l':
 ```
 
-2. Percabangan apabila data tidak ada maka akan tampil "TIDAK ADA DATA"
+2. Percabangan, apabila data tidak ada maka akan tampil "TIDAK ADA DATA" dengan function `tidakAdaData()`
 ```python
 print("Daftar Mahasiswa")
 if len(Data_Mahasiswa) <= 0:  
-   header()          
-   print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
-   garis()
+   tidakAdaData()
 ```
 
 Seperti gambar berikut.
@@ -275,3 +282,150 @@ else:
 Maka program Lihat data akan seperti berikut.
 
 ![output-lihat-2](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output_lihat-2.PNG)
+
+#### Ubah Data (U)
+1. Apabila Menu yang dipilih adalah (u/U) maka akan masuk ke Ubah Data Mahasiswa Berdasarkan NIM
+```python
+# Ubah Data {
+elif menu == "U" or menu == "u":
+```
+
+2. Percabangan, apabila data tidak ada maka akan tampil "TIDAK ADA DATA" dengan function `tidakAdaData()`
+```python
+print("Ubah Data Mahasiswa berdasarkan NIM")
+if len(Data_Mahasiswa) <= 0:  
+   tidakAdaData()
+```
+
+3. Namun apabila data lebih dari `>= 0` maka data akan keluar
+- Dimulai dengan memasukkan NIM yang ingin diubah, jika salah memasukkan NIM maka akan keluar "Data tidak ditemukan!!!".
+- Jika NIM benar maka akan tampil Nama, NIM, Nilai (Tugas, UTS, UAS). dengan memanggil function yang mereturn data
+```python
+else:
+   nim = str(input("Masukan nim : ")) 
+   if(nim in Data_Mahasiswa):
+       U_data = Data_Mahasiswa[nim]
+       print(f"Nama        = {U_data.getNama()}")
+       print(f"NIM         = {U_data.getNim()}")
+       print(f"Nilai Tugas = {U_data.getNilaiTugas()}")
+       print(f"Nilai UTS   = {U_data.getNilaiUTS()}")
+       print(f"Nilai UAS   = {U_data.getNilaiUAS()}")
+       ....
+       
+    else:
+       print("Data tidak ditemukan!!!") 
+```
+
+4. Data menu apa yang ingin di ubah
+```python
+print(25*"=")
+print("1. Nama\n2. NIM\n3. Nilai")
+tanya = int(input("Apa yang ingin diubah? [1-3] : "))
+```
+
+5. Jika memilih `1 Nama` hanya memasukkan nama baru, lalu dimasukkan menggunakan function setNama()
+```python
+if tanya == 1:
+     namaBaru = str(input("Masukan Nama Baru : ")) 
+     U_data.setNama(namaBaru) 
+```
+
+6. Jika memilih `2 NIM`
+- Memasukkan NIM baru
+- Data dimasukkan menggunakan function setNim()
+- Menghapus data yang memilik NIM yang lama dengan method `del`
+```python
+elif tanya == 2:
+     nimBaru = str(input("Masukan Nim Baru : ")) 
+     Data_Mahasiswa[nim].setNim(nimBaru)
+     Data_Mahasiswa[nimBaru] = Data_Mahasiswa[nim] 
+     del Data_Mahasiswa[nim]
+```
+
+7. Jika memilih `3 Nilai`
+- Memasukkan nilai (Tugas, UTS, UAS) yang baru
+- Data akan dimasukan dengan function setNilai(Tugas, UTS, UAS) yang baru
+- Lalu membuat perhitungan untuk nilai akhir, dan dimasukkan ke function setNilaiAkhir() yang baru
+```python
+elif tanya == 3:
+     nilaiTugasBaru = int(input("Masukan Nilai Tugas Baru : "))
+     nilaiUTSBaru = int(input("Masukan Nilai UTS Baru : "))
+     nilaiUASBaru = int(input("Masukan Nilai UAS Baru : "))
+     U_data.setNilaiTugas(nilaiTugasBaru)
+     U_data.setNilaiUTS(nilaiUTSBaru)
+     U_data.setNilaiUAS(nilaiUASBaru)
+     nilaiAkhirBaru = nilaiTugasBaru * 30/100 + nilaiUTSBaru * 35/100 + nilaiUASBaru * 35/100
+     U_data.setNilaiAkhir(nilaiAkhirBaru)
+```
+
+8. Jika data salah dimasukkan maka akan muncul "Pilihan yang dimasukkan tidak ada!"
+```python
+else:
+     print("Pilihan yang anda masukan tidak ada!")
+```
+
+#### Hapus Data (H)
+1. Apabila Menu yang dipilih adalah (h/H) maka akan masuk ke Hapus Data Mahasiswa Berdasarkan NIM
+```python
+# Hapus Data {
+elif menu == "H" or menu == "h":
+```
+
+2. Percabangan, apabila data tidak ada maka akan tampil "TIDAK ADA DATA" dengan function `tidakAdaData()`
+```python
+print("Hapus Data Mahasiswa berdasarkan NIM")
+if len(Data_Mahasiswa) <= 0:  
+   tidakAdaData()
+```
+
+3. Namun apabila data lebih dari `>= 0` maka program dijalankan
+- memasukkan NIM yang ingin di hapus
+- Jika NIM yang dimaksud tidak ada/salah, maka akan keluar "Data tidak ditemukan!!!"
+```python
+else:
+   nim = str(input("Masukan NIM : "))
+   if(nim in Data_Mahasiswa):
+       del Data_Mahasiswa[nim] 
+       
+   else:
+       print("Data tidak ditemukan!!!") 
+```
+
+#### Cari Data (C)
+1. Apabila Menu yang dipilih adalah (c/C) maka akan masuk ke Cari Data Mahasiswa Berdasarkan NIM
+```python
+elif menu == "C" or menu == "c":
+```
+
+2. Percabangan, apabila data tidak ada maka akan tampil "TIDAK ADA DATA"
+```python
+if len(Data_Mahasiswa) <= 0:  
+   tidakAdaData()
+```
+
+3. Namun apabila data lebih dari `>= 0` maka program dijalankan
+- Memasukkan NIM yang ingin di cari
+- Jika NIM yang dimaksud tidak ada/salah, maka akan keluar "Data tidak ditemukan!!!"
+```python
+nim = str(input("Masukan NIM : ")) 
+   if(nim in Data_Mahasiswa):
+       no = 0
+       header()
+       no += 1 
+       C_Data = Data_Mahasiswa[nim]
+       print(f"| {no:>2} | {C_Data.getNim():>7} | {C_Data.getNama():<18} | {C_Data.getNilaiTugas():>5} | {C_Data.getNilaiUTS():>5} | {C_Data.getNilaiUAS():>5} | {C_Data.getNilaiAkhir():>7.2f} |")                  
+       garis()  
+       
+   else:
+       print("Data tidak ditemukan!!!") 
+```
+
+#### Keluar dari Program (K)
+1. Apabila Menu yang dipilih adalah (k/K) maka program selesai dengan mengganti variable loop = False
+```python
+# Keluar {
+elif menu == "K" or menu == "k":
+     print("Selesai")
+     loop = False 
+# }
+```
