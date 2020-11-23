@@ -48,13 +48,7 @@ class Mahasiswa:
 
 def header():
     print(71*"=")
-    print("| {0:^2} | {1:^7} | {2:^18} | {3:^5} | {4:^5} | {5:^5} | {6:^7} |".format("No", 
-    "NIM", 
-    "Nama", 
-    "Tugas", 
-    "UTS", 
-    "UAS", 
-    "Akhir"))
+    print("| {0:^2} | {1:^7} | {2:^18} | {3:^5} | {4:^5} | {5:^5} | {6:^7} |".format("No", "NIM", "Nama", "Tugas", "UTS", "UAS", "Akhir"))
     print(71*"=")
 
 # Deklarasi Variable
