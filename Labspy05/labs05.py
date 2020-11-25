@@ -1,50 +1,6 @@
-class Mahasiswa:
-    # Inisialisasi/Memasukan data inputan ke Dictionary
-    def __init__(self, _nama, _nim, _nilaiTugas, _nilaiUTS, _nilaiUAS, _nilaiAkhir):
-        self.nama       = str(_nama) 
-        self.nim        = str(_nim) 
-        self.nilaiTugas = int(_nilaiTugas)
-        self.nilaiUTS   = int(_nilaiUTS)
-        self.nilaiUAS   = int(_nilaiUAS)
-        self.nilaiAkhir = float(_nilaiAkhir)
-
-    # Untuk merubah data dari Dictionary Data_Mahasiswa
-    def setNama(self, _nama):
-        self.nama = _nama
-
-    def setNim(self, _nim):
-        self.nim = _nim
-    
-    def setNilaiTugas(self, _nilaiTugas):
-        self.nilaiTugas = _nilaiTugas
-    
-    def setNilaiUTS(self, _nilaiUTS):
-        self.nilaiUTS = _nilaiUTS
-    
-    def setNilaiUAS(self, _nilaiUAS):
-        self.nilaiUAS = _nilaiUAS
-    
-    def setNilaiAkhir(self, _nilaiAkhir):
-        self.nilaiAkhir = _nilaiAkhir
-
-    # Menampilkan/mengambil data dari dictionary
-    def getNama(self):
-        return self.nama 
-
-    def getNim(self):
-        return self.nim 
-
-    def getNilaiTugas(self):
-        return self.nilaiTugas 
-
-    def getNilaiUTS(self):
-        return self.nilaiUTS 
-
-    def getNilaiUAS(self):
-        return self.nilaiUAS 
-
-    def getNilaiAkhir(self):
-        return self.nilaiAkhir 
+# Deklarasi Variable
+Data_Mahasiswa = {} 
+loop = True
 
 # Function2an
 def garis():
@@ -60,9 +16,100 @@ def tidakAdaData():
     print("|{0:^69}|".format("TIDAK ADA DATA!!! Silahkan Tambah Data Terlebih Dahulu"))
     garis()
 
-# Deklarasi Variable
-Data_Mahasiswa = {} 
-loop = True
+def tambah():
+    print("Tambah data")
+    nim        = input("NIM         : ")
+    nama       = input("Nama        : ")
+    nilaiTugas = int(input("Nilai Tugas : "))
+    nilaiUTS   = int(input("Nilai UTS   : "))
+    nilaiUAS   = int(input("Nilai UAS   : "))
+    nilaiAkhir = (nilaiTugas * 30/100) + (nilaiUTS * 35/100) + (nilaiUAS * 35/100)
+    Data_Mahasiswa[nama] = [nim, nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir]
+    print(f"Berhasil menambahkan data '{nama}' dengan NIM : {nim}!")
+
+def lihat():
+    print("Daftar Mahasiswa")
+    if len(Data_Mahasiswa) <= 0:  
+        tidakAdaData()
+    else:
+        no = 0
+        header()
+        for data in Data_Mahasiswa.items():
+            no += 1 
+            print(f"| {no:>2} | {data[1][0]:>7} | {data[0]:<18} | {data[1][1]:>5} | {data[1][2]:>5} | {data[1][3]:>5} | {data[1][4]:>7.2f} |")               
+        garis() 
+
+def ubah():
+    print("Ubah Data Mahasiswa berdasarkan Nama")
+    if len(Data_Mahasiswa) <= 0:  
+        tidakAdaData()
+
+    else:
+        nama = str(input("Masukan nama : ")) 
+        if nama in Data_Mahasiswa.keys():
+            print(f"Nama        = {nama}")
+            print(f"NIM         = {Data_Mahasiswa[nama][0]}")
+            print(f"Nilai Tugas = {Data_Mahasiswa[nama][1]}")
+            print(f"Nilai UTS   = {Data_Mahasiswa[nama][2]}")
+            print(f"Nilai UAS   = {Data_Mahasiswa[nama][3]}")
+            print(25*"=")
+            print("1. Nama\n2. NIM\n3. Nilai")
+            tanya = int(input("Apa yang ingin diubah? [1-3] : "))
+            if tanya == 1:
+                _nama = input("Masukan Nama Baru : ")
+                Data_Mahasiswa[_nama] = Data_Mahasiswa.pop(nama)
+                print("Berhasil merubah Nama! ")
+
+            elif tanya == 2:
+                _nim = input("Masukan Nim Baru : ")
+                Data_Mahasiswa[nama][0] = _nim
+                print(Data_Mahasiswa)
+                print("Berhasil merubah NIM!")
+
+            elif tanya == 3:
+                _nilaiTugas = int(input("Masukan Nilai Tugas Baru : "))
+                _nilaiUTS = int(input("Masukan Nilai UTS Baru : "))
+                _nilaiUAS = int(input("Masukan Nilai UAS Baru : "))
+                _nilaiAkhir = _nilaiTugas * 30/100 + _nilaiUTS * 35/100 + _nilaiUAS * 35/100
+                Data_Mahasiswa[nama][1:4] = _nilaiTugas, _nilaiUTS, _nilaiUAS, _nilaiAkhir
+                print("Berhasil merubah data nilai!")
+
+            else:
+                print(f"Pilihan {tanya} tidak ada! Silahkan masukan [1-3]")
+
+        else:
+            print(f"Data {nama} tidak ditemukan!") 
+
+def hapus():
+    print("Hapus Data Mahasiswa berdasarkan Nama")
+    if len(Data_Mahasiswa) <= 0:  
+        tidakAdaData()
+
+    else:
+        nama = str(input("Masukan nama : "))
+        if(nama in Data_Mahasiswa):
+            del Data_Mahasiswa[nama]
+            print(f"Data {nama} berhasil dihapus!")
+        else:
+            print(f"Data {nama} tidak ditemukan!") 
+
+def cari():
+    print("Cari Data Mahasiswa berdasarkan nama")
+    if len(Data_Mahasiswa) <= 0:  
+        tidakAdaData()
+        
+    else:
+        nama = input("Masukan nama : ")
+        if(nama in Data_Mahasiswa):
+            no = 1            
+            print(f"\nNama        = {nama}")
+            print(f"NIM         = {Data_Mahasiswa[nama][0]}")
+            print(f"Nilai Tugas = {Data_Mahasiswa[nama][1]}")
+            print(f"Nilai UTS   = {Data_Mahasiswa[nama][2]}")
+            print(f"Nilai UAS   = {Data_Mahasiswa[nama][3]}")                  
+            print(f"Nilai Akhir = {Data_Mahasiswa[nama][4]}")        
+        else:
+            print(f"Data {nama} tidak ditemukan!") 
 
 # Program
 print(23*"=")
@@ -74,118 +121,25 @@ while loop:
     menu = input("[(T)ambah, (L)ihat, (U)bah, (H)apus, (C)ari, (K)eluar] : ")
     print(71*"-")
     print()
-    
-    # Tambah Data {
+
     if menu == 'T' or menu == 't':
-        print("Tambah data")
-        nim        = input("NIM         : ")
-        nama       = input("Nama        : ")
-        nilaiTugas = int(input("Nilai Tugas : "))
-        nilaiUTS   = int(input("Nilai UTS   : "))
-        nilaiUAS   = int(input("Nilai UAS   : "))
-        nilaiAkhir = (nilaiTugas * 30/100) + (nilaiUTS * 35/100) + (nilaiUAS * 35/100)
-        mhs = Mahasiswa(nama, nim, nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir) 
-        Data_Mahasiswa[nim] = mhs 
-    # }
+        tambah()
 
-    # Lihat Data {
     elif menu == 'L' or menu == 'l':
-        print("Daftar Mahasiswa")
-        if len(Data_Mahasiswa) <= 0:  
-            tidakAdaData()
-        else:
-            no = 0
-            header()
-            for i in Data_Mahasiswa:
-                no += 1 
-                L_Data = Data_Mahasiswa[i]
-                print(f"| {no:>2} | {L_Data.getNim():>7} | {L_Data.getNama():<18} | {L_Data.getNilaiTugas():>5} | {L_Data.getNilaiUTS():>5} | {L_Data.getNilaiUAS():>5} | {L_Data.getNilaiAkhir():>7.2f} |")                
-            garis()        
-    # }
+        lihat()       
 
-    # Ubah Data {
     elif menu == "U" or menu == "u":
-        print("Ubah Data Mahasiswa berdasarkan NIM")
-        if len(Data_Mahasiswa) <= 0:  
-            tidakAdaData()
+        ubah() 
 
-        else:
-            nim = str(input("Masukan nim : ")) 
-            if(nim in Data_Mahasiswa):
-                U_data = Data_Mahasiswa[nim]
-                print(f"Nama        = {U_data.getNama()}")
-                print(f"NIM         = {U_data.getNim()}")
-                print(f"Nilai Tugas = {U_data.getNilaiTugas()}")
-                print(f"Nilai UTS   = {U_data.getNilaiUTS()}")
-                print(f"Nilai UAS   = {U_data.getNilaiUAS()}")
-                print(25*"=")
-                print("1. Nama\n2. NIM\n3. Nilai")
-                tanya = int(input("Apa yang ingin diubah? [1-3] : "))
-                if tanya == 1:
-                    namaBaru = str(input("Masukan Nama Baru : ")) 
-                    U_data.setNama(namaBaru) 
-
-                elif tanya == 2:
-                    nimBaru = str(input("Masukan Nim Baru : ")) 
-                    Data_Mahasiswa[nim].setNim(nimBaru) 
-                    Data_Mahasiswa[nimBaru] = Data_Mahasiswa[nim]  
-                    del Data_Mahasiswa[nim] 
-
-                elif tanya == 3:
-                    nilaiTugasBaru = int(input("Masukan Nilai Tugas Baru : "))
-                    nilaiUTSBaru = int(input("Masukan Nilai UTS Baru : "))
-                    nilaiUASBaru = int(input("Masukan Nilai UAS Baru : "))
-                    U_data.setNilaiTugas(nilaiTugasBaru)
-                    U_data.setNilaiUTS(nilaiUTSBaru)
-                    U_data.setNilaiUAS(nilaiUASBaru)
-                    nilaiAkhirBaru = nilaiTugasBaru * 30/100 + nilaiUTSBaru * 35/100 + nilaiUASBaru * 35/100
-                    U_data.setNilaiAkhir(nilaiAkhirBaru)
-
-                else:
-                    print("Pilihan yang anda masukan tidak ada!")
-
-            else:
-                print("Data tidak ditemukan!!!") 
-    # }
-
-    # Hapus Data {
     elif menu == "H" or menu == "h":
-        print("Hapus Data Mahasiswa berdasarkan NIM")
-        if len(Data_Mahasiswa) <= 0:  
-            tidakAdaData()
+        hapus()
 
-        else:
-            nim = str(input("Masukan NIM : "))
-            if(nim in Data_Mahasiswa):
-                del Data_Mahasiswa[nim] 
-            else:
-                print("Data tidak ditemukan!!!") 
-    # }
-
-    # Cari Data {
     elif menu == "C" or menu == "c":
-        print("Cari Data Mahasiswa berdasarkan NIM")
-        if len(Data_Mahasiswa) <= 0:  
-            tidakAdaData()
-            
-        else:
-            nim = str(input("Masukan NIM : ")) 
-            if(nim in Data_Mahasiswa):
-                no = 0
-                header()
-                no += 1 
-                C_Data = Data_Mahasiswa[nim]
-                print(f"| {no:>2} | {C_Data.getNim():>7} | {C_Data.getNama():<18} | {C_Data.getNilaiTugas():>5} | {C_Data.getNilaiUTS():>5} | {C_Data.getNilaiUAS():>5} | {C_Data.getNilaiAkhir():>7.2f} |")                  
-                garis()        
-            else:
-                print("Data tidak ditemukan!!!") 
-    # }
+        cari() 
 
-    # Keluar {
     elif menu == "K" or menu == "k":
-        print("Selesai")
+        print("Program selesai, Terima Kasih")
         loop = False 
-    # }
 
     else:
-        print("Menu tidak ada atau anda salah memasukan nilai!") 
+        print(f"Menu '{menu}' tidak ada silahkan masukan [T/L/U/H/C/K]")
