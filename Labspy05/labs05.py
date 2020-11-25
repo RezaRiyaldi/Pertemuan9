@@ -53,7 +53,7 @@ def ubah():
             print(f"Nilai UTS   = {Data_Mahasiswa[nama][2]}")
             print(f"Nilai UAS   = {Data_Mahasiswa[nama][3]}")
             print(25*"=")
-            print("1. Nama\n2. NIM\n3. Nilai")
+            print("1. Nama\n2. NIM\n3. Nilai\n0. Kembali")
             tanya = int(input("Apa yang ingin diubah? [1-3] : "))
             if tanya == 1:
                 _nama = input("Masukan Nama Baru : ")
@@ -63,7 +63,6 @@ def ubah():
             elif tanya == 2:
                 _nim = input("Masukan Nim Baru : ")
                 Data_Mahasiswa[nama][0] = _nim
-                print(Data_Mahasiswa)
                 print("Berhasil merubah NIM!")
 
             elif tanya == 3:
@@ -73,7 +72,9 @@ def ubah():
                 _nilaiAkhir = _nilaiTugas * 30/100 + _nilaiUTS * 35/100 + _nilaiUAS * 35/100
                 Data_Mahasiswa[nama][1:4] = _nilaiTugas, _nilaiUTS, _nilaiUAS, _nilaiAkhir
                 print("Berhasil merubah data nilai!")
-
+            elif tanya == 0:
+                pass
+            
             else:
                 print(f"Pilihan {tanya} tidak ada! Silahkan masukan [1-3]")
 
@@ -142,4 +143,4 @@ while loop:
         loop = False 
 
     else:
-        print(f"Menu '{menu}' tidak ada silahkan masukan [T/L/U/H/C/K]")
+        print(f"Menu '{menu}' tidak ada! Silahkan masukan [T/L/U/H/C/K]")
