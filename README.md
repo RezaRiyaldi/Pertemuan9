@@ -297,8 +297,17 @@ if len(Data_Mahasiswa) <= 0:
    tidakAdaData()
 ```
 
+Seperti gambar berikut.
+
+![output-u-1](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-1.PNG)
+
 3. Namun apabila data lebih dari `>= 0` maka data akan keluar
 - Dimulai dengan memasukkan NIM yang ingin diubah, jika salah memasukkan NIM maka akan keluar "Data tidak ditemukan!!!".
+
+Seperti gambar berikut.
+
+![output-u-2](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-2.PNG)
+
 - Jika NIM benar maka akan tampil Nama, NIM, Nilai (Tugas, UTS, UAS). dengan memanggil function yang mereturn data
 ```python
 else:
@@ -323,12 +332,21 @@ print("1. Nama\n2. NIM\n3. Nilai")
 tanya = int(input("Apa yang ingin diubah? [1-3] : "))
 ```
 
+Seperti gambar berikut.
+
+![output-u-3](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-3.PNG)
+
+
 5. Jika memilih `1 Nama` hanya memasukkan nama baru, lalu dimasukkan menggunakan function setNama()
 ```python
 if tanya == 1:
      namaBaru = str(input("Masukan Nama Baru : ")) 
      U_data.setNama(namaBaru) 
 ```
+
+Seperti gambar berikut.
+
+![output-u-nama](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-nama.PNG)
 
 6. Jika memilih `2 NIM`
 - Memasukkan NIM baru
@@ -341,6 +359,10 @@ elif tanya == 2:
      Data_Mahasiswa[nimBaru] = Data_Mahasiswa[nim] 
      del Data_Mahasiswa[nim]
 ```
+
+Seperti gambar berikut.
+
+![output-u-nim](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-NIM.PNG)
 
 7. Jika memilih `3 Nilai`
 - Memasukkan nilai (Tugas, UTS, UAS) yang baru
@@ -358,6 +380,10 @@ elif tanya == 3:
      U_data.setNilaiAkhir(nilaiAkhirBaru)
 ```
 
+Seperti gambar berikut.
+
+![output-u-nim](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-nilai.PNG)
+
 8. Jika data salah dimasukkan maka akan muncul "Pilihan yang dimasukkan tidak ada!"
 ```python
 else:
@@ -371,6 +397,7 @@ else:
 elif menu == "H" or menu == "h":
 ```
 
+
 2. Percabangan, apabila data tidak ada maka akan tampil "TIDAK ADA DATA" dengan function `tidakAdaData()`
 ```python
 print("Hapus Data Mahasiswa berdasarkan NIM")
@@ -378,8 +405,17 @@ if len(Data_Mahasiswa) <= 0:
    tidakAdaData()
 ```
 
+Seperti gambar berikut.
+
+![output-h-1](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-hapus-1.PNG)
+
 3. Namun apabila data lebih dari `>= 0` maka program dijalankan
 - memasukkan NIM yang ingin di hapus
+
+Seperti gambar berikut.
+
+![output-h-2](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-hapus-2.PNG)
+
 - Jika NIM yang dimaksud tidak ada/salah, maka akan keluar "Data tidak ditemukan!!!"
 ```python
 else:
@@ -403,8 +439,17 @@ if len(Data_Mahasiswa) <= 0:
    tidakAdaData()
 ```
 
+Seperti gambar berikut.
+
+![output-c-1](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-cari-1.PNG)
+
 3. Namun apabila data lebih dari `>= 0` maka program dijalankan
 - Memasukkan NIM yang ingin di cari
+
+Seperti gambar berikut.
+
+![output-c-2](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-cari-2.PNG)
+
 - Jika NIM yang dimaksud tidak ada/salah, maka akan keluar "Data tidak ditemukan!!!"
 ```python
 nim = str(input("Masukan NIM : ")) 
@@ -429,3 +474,7 @@ elif menu == "K" or menu == "k":
      loop = False 
 # }
 ```
+
+Seperti gambar berikut.
+
+![output-k](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-keluar.PNG)
