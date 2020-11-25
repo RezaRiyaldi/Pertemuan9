@@ -19,7 +19,8 @@
          * [Function Lihat Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-lihat-data)
          * [Function Ubah Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-ubah-data)
          * [Function Hapus Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-hapus-data)
-         * [Function Cari Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-cari-data)     
+         * [Function Cari Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-cari-data)  
+         * [Menu](https://github.com/RezaRiyaldi/Pertemuan9/#menu)         
         
 ### Labspy 04
 Konsep Program :
