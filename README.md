@@ -216,7 +216,10 @@ else:
       print(25*"=")
       print("1. Nama\n2. NIM\n3. Nilai\n0. Kembali")
       tanya = int(input("Apa yang ingin diubah? [1-3] : "))
-      ...
+      ...      
+      elif tanya == 0:
+          pass
+          
       else:
           print(f"Pilihan {tanya} tidak ada! Silahkan masukan [1-3]")
    else:
@@ -260,8 +263,6 @@ elif tanya == 3:
     _nilaiAkhir = _nilaiTugas * 30/100 + _nilaiUTS * 35/100 + _nilaiUAS * 35/100
     Data_Mahasiswa[nama][1:4] = _nilaiTugas, _nilaiUTS, _nilaiUAS, _nilaiAkhir
     print("Berhasil merubah data nilai!")
-elif tanya == 0:
-    pass
 ```
 Maka program ubah Nilai akan seperti berikut.
 
@@ -333,7 +334,7 @@ else:
 ```
 Maka program Cari data akan seperti berikut.
 
-![hapus](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-hapus-2.PNG)
+![cari](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-cari-2.PNG)
 
 [Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
