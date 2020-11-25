@@ -13,16 +13,13 @@
 * [Pertemuan 9](https://github.com/RezaRiyaldi/Pertemuan9#pertemuan-9)
     * [Labspy04](https://github.com/RezaRiyaldi/Pertemuan9#Labspy-04) | [direktori](https://github.com/RezaRiyaldi/Pertemuan9/tree/main/Labspy04) | [Source Code](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy04/labs04.py)
     * [Labspy05](https://github.com/RezaRiyaldi/Pertemuan9#Labspy-05) | [direktori](https://github.com/RezaRiyaldi/Pertemuan9/tree/main/Labspy05) | [Source Code](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/labs05.py)
-         * [Membuat Kerangka](https://github.com/RezaRiyaldi/Pertemuan9#membuat-kerangka)
-         * [Program](https://github.com/RezaRiyaldi/Pertemuan9#program)
-         * [Tambah Data](https://github.com/RezaRiyaldi/Pertemuan9#tambah-data-t)
-         * [Lihat Data](https://github.com/RezaRiyaldi/Pertemuan9#lihat-data-l)
-         * [Ubah Data](https://github.com/RezaRiyaldi/Pertemuan9#ubah-data-u)
-         * [Hapus Data](https://github.com/RezaRiyaldi/Pertemuan9#hapus-data-h)
-         * [Cari Data](https://github.com/RezaRiyaldi/Pertemuan9#cari-data-c)
-         * [Keluar Program](https://github.com/RezaRiyaldi/Pertemuan9#keluar-dari-program-k)
-         
- 
+         * [Dictionary dan Variable](https://github.com/RezaRiyaldi/Pertemuan9/#--membuat-dictionary-sebagai-databasenya)
+         * [Function Tambahan](https://github.com/RezaRiyaldi/Pertemuan9/#--membuat-function-tambahan-agar-bisa-dipanggil-ketika-dibutuhkan)
+         * [Function Tambah Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-tambah-data)
+         * [Function Lihat Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-lihat-data)
+         * [Function Ubah Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-ubah-data)
+         * [Function Hapus Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-hapus-data)
+         * [Function Cari Data](https://github.com/RezaRiyaldi/Pertemuan9/#--function-cari-data)     
         
 ### Labspy 04
 Konsep Program :
@@ -134,6 +131,8 @@ def tidakAdaData():
     
 ```
 
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
+
 ##### - Function Tambah Data
 1. Program Tambah Data dijalankan
 - Memasukan data
@@ -152,6 +151,11 @@ def tambah():
     Data_Mahasiswa[nama] = [nim, nilaiTugas, nilaiUTS, nilaiUAS, nilaiAkhir]
     print(f"Berhasil menambahkan data '{nama}' dengan NIM : {nim}!")
 ```
+Maka program cari data akan seperti berikut.
+
+![tambah](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/Output-tambah.PNG)
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 ##### - Function Lihat Data
 1. Apabila `Dict Data_Mahasiswa` masih kosong maka akan memanggil function `tidakAdaData`
@@ -161,6 +165,10 @@ def lihat():
     if len(Data_Mahasiswa) <= 0:  
         tidakAdaData()
 ```
+Seperti gambar berikut.
+
+![takda-l](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output_lihat-1.PNG)
+
 2. Program Lihat Data Dijalankan
 - Menggunakan looping untuk mengeluarkan data
 - Dan menggunakan `f-string` agar tidak terlalu panjang dan `format.string` agar tampilan terlihat rapih
@@ -173,6 +181,11 @@ else:
          print(f"| {no:>2} | {data[1][0]:>7} | {data[0]:<18} | {data[1][1]:>5} | {data[1][2]:>5} | {data[1][3]:>5} | {data[1][4]:>7.2f} |")               
      garis() 
 ```
+Maka program cari data akan seperti berikut.
+
+![lihat](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output_lihat-2.PNG)
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 ##### - Function Ubah Data
 1. Apabila `Dict Data_Mahasiswa` masih kosong maka akan memanggil function `tidakAdaData`
@@ -182,29 +195,36 @@ def ubah():
     if len(Data_Mahasiswa) <= 0:  
         tidakAdaData()
 ```
-2. Program ubah data dijalan
+Seperti gambar berikut.
+
+![takda-u](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-1.PNG)
+
+2. Program ubah data dijalankan
 - Memasukan nama sebagai `key` dan akan memunculkan isi data dari `key` tersebut
 - Jika salah memasukkan nama, maka akan mengeluarkan "data `nama` tidak ditemukan!"
 - Selanjutnya akan diberi pilihan apa yang ingin diubah, jika ingin membatalkan maka ketik `0`
 - Jika salah memasukkan pilihan maka mengeluarkan "Pilihan `input` tidak ada! Silahkan masukan [1-3]"
 ```python
 else:
-nama = str(input("Masukan nama : ")) 
-if nama in Data_Mahasiswa.keys():
-   print(f"Nama        = {nama}")
-   print(f"NIM         = {Data_Mahasiswa[nama][0]}")
-   print(f"Nilai Tugas = {Data_Mahasiswa[nama][1]}")
-   print(f"Nilai UTS   = {Data_Mahasiswa[nama][2]}")
-   print(f"Nilai UAS   = {Data_Mahasiswa[nama][3]}")
-   print(25*"=")
-   print("1. Nama\n2. NIM\n3. Nilai\n0. Kembali")
-   tanya = int(input("Apa yang ingin diubah? [1-3] : "))
-   ...
+   nama = str(input("Masukan nama : ")) 
+   if nama in Data_Mahasiswa.keys():
+      print(f"Nama        = {nama}")
+      print(f"NIM         = {Data_Mahasiswa[nama][0]}")
+      print(f"Nilai Tugas = {Data_Mahasiswa[nama][1]}")
+      print(f"Nilai UTS   = {Data_Mahasiswa[nama][2]}")
+      print(f"Nilai UAS   = {Data_Mahasiswa[nama][3]}")
+      print(25*"=")
+      print("1. Nama\n2. NIM\n3. Nilai\n0. Kembali")
+      tanya = int(input("Apa yang ingin diubah? [1-3] : "))
+      ...
+      else:
+          print(f"Pilihan {tanya} tidak ada! Silahkan masukan [1-3]")
    else:
-       print(f"Pilihan {tanya} tidak ada! Silahkan masukan [1-3]")
-else:
-   print(f"Data {nama} tidak ditemukan!") 
+      print(f"Data {nama} tidak ditemukan!") 
 ```
+Maka program akan seperti berikut.
+
+![ubah-2](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-3.PNG)
 
 3. Ubah Nama
 - Memasukan nama baru, nama akan berubah, maka akan mengeluarkan "Berhasil merubah Nama!"
@@ -214,6 +234,9 @@ if tanya == 1:
     Data_Mahasiswa[_nama] = Data_Mahasiswa.pop(nama)
     print("Berhasil merubah Nama! ")
 ```
+Maka program ubah nama akan seperti berikut.
+
+![ubah-nama](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-nama.PNG)
 
 4. Ubah NIM
 - Memasukan NIM baru, NIM akan berubah, maka akan mengeluarkan "Berhasil merubah NIM!"
@@ -223,6 +246,10 @@ elif tanya == 2:
     Data_Mahasiswa[nama][0] = _nim
     print("Berhasil merubah NIM!")
 ```
+Maka program ubah Nim akan seperti berikut.
+
+![ubah-nim](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-NIM.PNG)
+
 5. Ubah Nilai
 - Memasukan nilai baru, nilai akan berubah, maka akan mengeluarkan "Berhasil merubah data nilai!"
 ```python
@@ -236,6 +263,11 @@ elif tanya == 3:
 elif tanya == 0:
     pass
 ```
+Maka program ubah Nilai akan seperti berikut.
+
+![ubah-nilai](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-nilai.PNG)
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 ##### - Function Hapus Data
 1. Apabila `Dict Data_Mahasiswa` masih kosong maka akan memanggil function `tidakAdaData`
@@ -245,6 +277,11 @@ def hapus():
     if len(Data_Mahasiswa) <= 0:  
         tidakAdaData()
 ```
+
+Seperti gambar berikut.
+
+![takda-h](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-hapus-1.PNG)
+
 2. Program Hapus Data Dijalankan
 - Memasukan nama sebagai `key` data yang ingin dihapus
 - Jika salah memasukan nama ,maka akan mengeluarkan "data `nama` tidak ditemukan!"
@@ -257,6 +294,12 @@ else:
      else:
          print(f"Data {nama} tidak ditemukan!") 
 ```
+Maka program Hapus Data akan seperti berikut.
+
+![hapus](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-hapus-2.PNG)
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
+
 ##### - Function Cari Data
 1. Apabila `Dict Data_Mahasiswa` masih kosong maka akan memanggil function `tidakAdaData`
 ```python
@@ -265,6 +308,11 @@ def cari():
     if len(Data_Mahasiswa) <= 0:  
         tidakAdaData()
 ```
+
+Seperti gambar berikut.
+
+![takda-c](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-cari-1.PNG)
+
 2. Program Cari Data Dijalankan
 - Memasukan nama sebagai `key` data yang ingin dicari
 - Jika salah memasukan nama ,maka akan mengeluarkan "data `nama` tidak ditemukan!"
@@ -282,6 +330,46 @@ else:
          print(f"Nilai Akhir = {Data_Mahasiswa[nama][4]}")        
      else:
          print(f"Data {nama} tidak ditemukan!") 
+```
+Maka program Cari data akan seperti berikut.
+
+![hapus](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-hapus-2.PNG)
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
+
+##### Menu 
+1. Program menu dijalankan
+- Menggunakan _infinite loop_ sampai loopnya jadi false
+- Apabila salah memasukkkan inputan maka akan muncul "Menu '`menu`' tidak ada! Silahkan masukan [T/L/U/H/C/K]"
+- Jika benar maka function yang sudah dibuat akan dijalankan
+```python
+while loop: 
+    print()
+    menu = input("[(T)ambah, (L)ihat, (U)bah, (H)apus, (C)ari, (K)eluar] : ")
+    print(71*"-")
+    print()
+
+    if menu == 'T' or menu == 't':
+        tambah()
+
+    elif menu == 'L' or menu == 'l':
+        lihat()       
+
+    elif menu == "U" or menu == "u":
+        ubah() 
+
+    elif menu == "H" or menu == "h":
+        hapus()
+
+    elif menu == "C" or menu == "c":
+        cari() 
+
+    elif menu == "K" or menu == "k":
+        print("Program selesai, Terima Kasih")
+        loop = False 
+
+    else:
+        print(f"Menu '{menu}' tidak ada! Silahkan masukan [T/L/U/H/C/K]")
 ```
 
 [Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
