@@ -17,6 +17,11 @@
          * [Program](https://github.com/RezaRiyaldi/Pertemuan9#program)
          * [Tambah Data](https://github.com/RezaRiyaldi/Pertemuan9#tambah-data-t)
          * [Lihat Data](https://github.com/RezaRiyaldi/Pertemuan9#lihat-data-l)
+         * [Ubah Data](https://github.com/RezaRiyaldi/Pertemuan9#ubah-data-u)
+         * [Hapus Data](https://github.com/RezaRiyaldi/Pertemuan9#hapus-data-h)
+         * [Cari Data](https://github.com/RezaRiyaldi/Pertemuan9#cari-data-c)
+         * [Keluar Program](https://github.com/RezaRiyaldi/Pertemuan9#keluar-dari-program-k)
+         
  
         
 ### Labspy 04
@@ -97,6 +102,8 @@ print(71*"=")
 Maka program seperti berikut.
 
 ![Output Labspy04](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy04/gambar/labspy04-output.PNG)
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 ### Labspy 05
 Konsep Program :
@@ -190,6 +197,8 @@ Data_Mahasiswa = {}
 loop = True
 ```
 
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
+
 #### Program
 1. Membuat judul
 ```python
@@ -210,6 +219,8 @@ menu = input("[(T)ambah, (L)ihat, (U)bah, (H)apus, (C)ari, (K)eluar] : ")
 print(71*"-")
 print()
 ```
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 #### Tambah Data (T)
 1. Apabila Menu yang dipilih adalah (t/T) maka akan masuk ke tambah data
@@ -243,6 +254,7 @@ Maka program Tambah akan seperti berikut.
 
 ![output-tambah](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/Output-tambah.PNG)
 
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 #### Lihat Data (L)
 1. Apabila Menu yang dipilih adalah (l/L) maka akan masuk ke Daftar Mahasiswa
@@ -282,6 +294,8 @@ else:
 Maka program Lihat data akan seperti berikut.
 
 ![output-lihat-2](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output_lihat-2.PNG)
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 #### Ubah Data (U)
 1. Apabila Menu yang dipilih adalah (u/U) maka akan masuk ke Ubah Data Mahasiswa Berdasarkan NIM
@@ -344,7 +358,7 @@ if tanya == 1:
      U_data.setNama(namaBaru) 
 ```
 
-Seperti gambar berikut.
+Maka program Ubah Nama data akan seperti berikut.
 
 ![output-u-nama](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-nama.PNG)
 
@@ -360,7 +374,7 @@ elif tanya == 2:
      del Data_Mahasiswa[nim]
 ```
 
-Seperti gambar berikut.
+Maka program Ubah NIM data akan seperti berikut.
 
 ![output-u-nim](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-NIM.PNG)
 
@@ -380,7 +394,7 @@ elif tanya == 3:
      U_data.setNilaiAkhir(nilaiAkhirBaru)
 ```
 
-Seperti gambar berikut.
+Maka program Ubah Nilai data akan seperti berikut.
 
 ![output-u-nim](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-ubah-nilai.PNG)
 
@@ -389,6 +403,8 @@ Seperti gambar berikut.
 else:
      print("Pilihan yang anda masukan tidak ada!")
 ```
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 #### Hapus Data (H)
 1. Apabila Menu yang dipilih adalah (h/H) maka akan masuk ke Hapus Data Mahasiswa Berdasarkan NIM
@@ -412,7 +428,7 @@ Seperti gambar berikut.
 3. Namun apabila data lebih dari `>= 0` maka program dijalankan
 - memasukkan NIM yang ingin di hapus
 
-Seperti gambar berikut.
+Maka program Hapus data akan seperti berikut..
 
 ![output-h-2](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-hapus-2.PNG)
 
@@ -426,6 +442,8 @@ else:
    else:
        print("Data tidak ditemukan!!!") 
 ```
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
 
 #### Cari Data (C)
 1. Apabila Menu yang dipilih adalah (c/C) maka akan masuk ke Cari Data Mahasiswa Berdasarkan NIM
@@ -446,7 +464,7 @@ Seperti gambar berikut.
 3. Namun apabila data lebih dari `>= 0` maka program dijalankan
 - Memasukkan NIM yang ingin di cari
 
-Seperti gambar berikut.
+Maka program Cari data akan seperti berikut.
 
 ![output-c-2](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-cari-2.PNG)
 
@@ -465,6 +483,8 @@ nim = str(input("Masukan NIM : "))
        print("Data tidak ditemukan!!!") 
 ```
 
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
+
 #### Keluar dari Program (K)
 1. Apabila Menu yang dipilih adalah (k/K) maka program selesai dengan mengganti variable loop = False
 ```python
@@ -478,3 +498,5 @@ elif menu == "K" or menu == "k":
 Seperti gambar berikut.
 
 ![output-k](https://github.com/RezaRiyaldi/Pertemuan9/blob/main/Labspy05/gambar/output-keluar.PNG)
+
+[Kembali ke Daftar Isi](https://github.com/RezaRiyaldi/Pertemuan9#daftar-isi)
